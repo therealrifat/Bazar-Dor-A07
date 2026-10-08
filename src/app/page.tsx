@@ -1,3 +1,4 @@
+import AllProductList from "./component/allProduct";
 import BannerSection from "./component/banner";
 import HikePrice from "./component/hikePrice";
 import LowestPrice from "./component/lowestPrice";
@@ -48,6 +49,7 @@ export default function Home() {
       {/* <p>Hello bazar dor</p> */}
       <HikePrice/>
       <LowestPrice/>
+      <AllProductList />
       
     </div>
   );
