@@ -23,8 +23,15 @@ const ProductCard = ({ product }: { product: IProduct }) => {
       <div>
         <p>আজকের দাম</p>
         <div className="flex justify-between">
-          <p className="text-2xl font-bold">{product.today}<span className="text-xl"> টাকা</span></p>
-          <span className="px-3 py-1 bg-[#f0f5f0] rounded-xl flex items-center text-green-900">{`${product.change.dir ==="up" ? `▲ ${product.change.pct}%` : product.change.dir ==="flat" ? (""): (` ▼ ${  Math.abs(product.change.pct)}%`) }`} </span>
+          <p className="text-2xl font-bold">{product.today.toLocaleString('bn-BD')}<span className="text-xl"> টাকা</span></p>
+          {/* <span className="px-3 py-1 bg-[#f0f5f0] rounded-xl flex items-center text-green-900">{`${product.change.dir ==="up" ? `▲ ${product.change.pct}%` : product.change.dir ==="flat" ? (""): (` ▼ ${  Math.abs(product.change.pct)}%`) }`} </span> */}
+          <div className="px-3 py-1 bg-[#f0f5f0] rounded-xl flex items-center text-green-900">
+            {
+              product.change.dir === "up" ? (<span className="text-red-600">▲ {`${product.change.pct.toLocaleString('bn-BD')}%`}</span>) : (product.change.dir === "down" ? (<span className="text-green-600">▼ {`${Math.abs(product.change.pct).toLocaleString('bn-BD')}%`}</span>): (product.change.dir === "flat" && (<span className=" text-gray-600">—{`${product.change.pct.toLocaleString('bn-BD')}%`}</span>)) )
+              
+              
+            }
+          </div>
         </div>
       </div>
     </div>
