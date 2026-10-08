@@ -8,7 +8,7 @@ const MarqueesText = async() => {
     console.log(productList)
 
   return (
-    <MarqueeText duration={40}  direction="right" className="">
+    <MarqueeText duration={25}  direction="right" className="">
       <div className="flex gap-10">
         {productList.map( (product:IProduct)=> <div key={product.id}>
             <span>{`${product.image} ${product.nameBn} ${product.today} টাকা/${product.unit =="kg" ? ("কেজি"):(product.unit =="litre" ? ("লিটার"): "ডজন")} ${product.change.dir ==="up" ? `▲ ${product.change.pct}%` : product.change.dir ==="flat" ? (" "): `▼${Math.abs(product.change.pct)}%` } `}</span>

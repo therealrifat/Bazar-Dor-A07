@@ -39,9 +39,9 @@ export const getProducts =async()=>{
 
 export default function Home() {
   return (
-    <div>
-      <p>Hello bazar dor</p>
+    <div className="max-w-7xl mx-auto">
       <BannerSection />
+      {/* <p>Hello bazar dor</p> */}
     </div>
   );
 }

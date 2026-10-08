@@ -28,7 +28,7 @@ const Navbar = async () => {
 
 
   return (
-    <nav className=" space-y-3">
+    <nav className=" space-y-3 bg-[#ffffff]">
       <div className="px-20">
         <div className=" flex items-center gap-10 py-5 justify-between ">
           <div className="flex gap-2 items-center">

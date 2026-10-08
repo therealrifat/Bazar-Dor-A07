@@ -24,7 +24,7 @@ export default function RootLayout({
       data-theme="light"
       className={`${balodatwo.className} min-h-full antialiased`}
     >
-      <body className="min-h-full flex flex-col">
+      <body className="min-h-full flex flex-col bg-[#f0f5f0]">
         <Navbar />
         {children}
       </body>
