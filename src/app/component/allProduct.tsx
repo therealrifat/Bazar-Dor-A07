@@ -4,7 +4,7 @@ import ProductCard from './productCard';
 
 const AllProductList = async() => {
     const allProduct = await getProducts()
-    console.log(allProduct)
+    // console.log(allProduct)
 
     return (
         <div>
