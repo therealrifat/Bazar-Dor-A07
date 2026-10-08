@@ -1,26 +1,34 @@
 import Image from "next/image";
 import logo from "../../../public/logo-icon.png";
 
+export interface ICategoryList {
+  id: string
+  slug: string
+  nameBn: string
+  icon: string
+}
 
 
-// import CurrentDate from "./currentDate";
-// import { Suspense } from "react";
+const categoryList = async () => {
+  const res = await fetch(
+    "https://api.api-store.workers.dev/api/bazardor/categories/");
+  const data = await res.json();
+  return data
+
+};
+
+const Navbar = async () => {
+  const today = new Date().toLocaleDateString("bn-bd", {
+    dateStyle: "full",
+  });
+
+  const navList = await categoryList()
+  console.log(navList)
 
 
-
-const Navbar = async() => {
-    const today = new Date().toLocaleDateString("bn-bd",{
-        dateStyle: "full"
-    })
-
-    const res = await fetch('https://api.api-store.workers.dev/api/bazardor/categories/', {cache: "no-cache"})
-    const data = await res.json()
-
-
-    console.log(data)
   return (
-    <nav className="  max-w-10/12 mx-auto  ">
-      <div>
+    <nav className="">
+      <div className="px-20">
         <div className=" flex items-center gap-10 py-5 justify-between ">
           <div className="flex gap-2 items-center">
             <Image
@@ -32,11 +40,8 @@ const Navbar = async() => {
             />
             <div>
               <h4 className=" font-extrabold">বাজার দর</h4>
-              
-                <p>
-                  {today}
-                </p>
 
+              <p>{today}</p>
             </div>
           </div>
 
@@ -50,10 +55,12 @@ const Navbar = async() => {
 
         {/* category part */}
 
-        <div>
-            
 
-
+        <div className="flex gap-3">
+          {navList.map((p:ICategoryList )=><div key={p.id} className="flex gap-1">
+            <span>{p.icon}</span>
+            <p>{p.nameBn}</p>
+          </div>)}
         </div>
       </div>
     </nav>
