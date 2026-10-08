@@ -1,5 +1,6 @@
 import Image from "next/image";
 import logo from "../../../public/logo-icon.png";
+import MarqueesText from "./MarqueeText";
 
 export interface ICategoryList {
   id: string
@@ -9,7 +10,7 @@ export interface ICategoryList {
 }
 
 
-const categoryList = async () => {
+export const categoryList = async () => {
   const res = await fetch(
     "https://api.api-store.workers.dev/api/bazardor/categories/");
   const data = await res.json();
@@ -27,7 +28,7 @@ const Navbar = async () => {
 
 
   return (
-    <nav className="">
+    <nav className=" space-y-3">
       <div className="px-20">
         <div className=" flex items-center gap-10 py-5 justify-between ">
           <div className="flex gap-2 items-center">
@@ -63,6 +64,9 @@ const Navbar = async () => {
           </div>)}
         </div>
       </div>
+       <div className="border border-gray-300 py-2">
+         <MarqueesText/>
+       </div>
     </nav>
   );
 };
