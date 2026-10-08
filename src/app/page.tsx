@@ -1,4 +1,8 @@
 import BannerSection from "./component/banner";
+import HikePrice from "./component/hikePrice";
+import LowestPrice from "./component/lowestPrice";
+
+
 
 export interface IProduct {
   id: number
@@ -32,7 +36,7 @@ export interface Market {
 
 
 export const getProducts =async()=>{
-  const res = await fetch('https://api.api-store.workers.dev/api/bazardor/products') 
+  const res = await fetch('https://api.abcz.workers.dev/api/bazardor/products') 
   const data = await res.json()
   return data
 }
@@ -42,6 +46,9 @@ export default function Home() {
     <div className="max-w-7xl mx-auto">
       <BannerSection />
       {/* <p>Hello bazar dor</p> */}
+      <HikePrice/>
+      <LowestPrice/>
+      
     </div>
   );
 }
