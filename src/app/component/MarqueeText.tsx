@@ -5,7 +5,7 @@ import { getProducts, IProduct } from "../page";
 
 const MarqueesText = async() => {
     const productList = await getProducts()
-    console.log(productList)
+
 
   return (
     <MarqueeText duration={25}  direction="right" className="">

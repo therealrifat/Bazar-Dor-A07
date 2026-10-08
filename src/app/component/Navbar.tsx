@@ -24,23 +24,23 @@ const Navbar = async () => {
   });
 
   const navList = await categoryList()
-  console.log(navList)
+
 
 
   return (
     <nav className=" space-y-3 bg-[#ffffff]">
-      <div className="px-20">
-        <div className=" flex items-center gap-10 py-5 justify-between ">
+      <div className="md:px-20 px-10">
+        <div className=" flex items-center md:gap-10 py-5 justify-between ">
           <div className="flex gap-2 items-center">
             <Image
               src={logo}
               width={60}
               height={30}
               alt="logo"
-              className="bg-green-700 p-4 rounded-lg   "
+              className="bg-green-700 p-4 rounded-lg hidden md:inline"
             />
             <div>
-              <h4 className=" font-extrabold">বাজার দর</h4>
+              <h4 className=" text-2xl font-extrabold">বাজার দর</h4>
 
               <p>{today}</p>
             </div>
@@ -57,7 +57,7 @@ const Navbar = async () => {
         {/* category part */}
 
 
-        <div className="flex gap-3">
+        <div className="flex gap-1 md:gap-3 md:justify-start justify-center"  >
           {navList.map((p:ICategoryList )=><div key={p.id} className="flex gap-1">
             <span>{p.icon}</span>
             <p>{p.nameBn}</p>
