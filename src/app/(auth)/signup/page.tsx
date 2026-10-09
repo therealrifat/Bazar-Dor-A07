@@ -4,6 +4,8 @@ import { FaGithub } from "react-icons/fa";
 import { FcGoogle } from "react-icons/fc";
 
 const SignUpPage = () => {
+
+
   return (
     <div className="flex flex-col items-center my-10 ">
       <h1 className="text-2xl font-bold my-3">অ্যাকাউন্ট তৈরি করুন</h1>
@@ -18,7 +20,7 @@ const SignUpPage = () => {
             <input type="email" className="input  w-sm" placeholder="you@example.com" />
 
             <label className="label font-semibold text-[16px] text-black">পাসওয়ার্ড</label>
-            <input type="password" className="input  w-sm" placeholder="কমপক্ষে ৮ অক্ষর" />
+            <input type="password" className="input  w-sm" placeholder="কমপক্ষে ৮ অক্ষর" min={8} />
 
             <label className="label  text-black text-[16px]  font-semibold">পাসওয়ার্ড নিশ্চিত করুন</label>
             <input type="password" className="input  w-sm" placeholder="আবার লিখুন" />

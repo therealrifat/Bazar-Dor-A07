@@ -10,7 +10,7 @@ import {
 import Link from "next/link";
 import { FaGithub } from "react-icons/fa";
 import { FcGoogle } from "react-icons/fc";
-const SignInPage = () => {
+const SignUpPage = () => {
   return (
     <div className="flex flex-col items-center  my-10">
       <h1 className="text-2xl font-bold my-3">সাইন ইন</h1>
@@ -92,4 +92,4 @@ const SignInPage = () => {
   );
 };
 
-export default SignInPage;
+export default SignUpPage;

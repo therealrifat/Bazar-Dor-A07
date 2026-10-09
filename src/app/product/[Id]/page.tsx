@@ -35,7 +35,7 @@ const ProductDetails = async ({
 }) => {
   const { Id } = await params;
   const res = await fetch(
-    `https://api.abcz.workers.dev/api/bazardor/products/${Id}`,
+    `https://api.api-store.workers.dev/api/bazardor/products/${Id}`,
   );
   const productData: IFProduct = await res.json();
   console.log(productData);
