@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Baloo_Da_2 } from "next/font/google";
 import "./globals.css";
 import Navbar from "./component/Navbar";
+import FooterSection from "./component/Footer";
 
 const balodatwo = Baloo_Da_2({
   subsets: ["latin", "bengali"],
@@ -27,6 +28,7 @@ export default function RootLayout({
       <body className="min-h-full flex flex-col bg-[#f0f5f0]">
         <Navbar />
         {children}
+        <FooterSection/>
       </body>
     </html>
   );
