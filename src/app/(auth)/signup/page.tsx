@@ -1,4 +1,5 @@
 "use client";
+import { signUp } from "@/lib/auth-client";
 import {
   Button,
   FieldError,
@@ -7,10 +8,36 @@ import {
   Label,
   TextField,
 } from "@heroui/react";
+import { redirect } from "next/dist/server/api-utils";
 import Link from "next/link";
 import { FaGithub } from "react-icons/fa";
 import { FcGoogle } from "react-icons/fc";
-const SignUpPage = () => {
+const SignUpPage =() => {
+  const onSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    const formData = new FormData(e.currentTarget);
+    const user = Object.fromEntries(formData.entries()) as {name: string, email: string, password: string} 
+    // console.log(user)
+    const {data, error} = await signUp.email(
+      {
+        ...user,
+      }
+    )
+    if(data){
+      console.log(data)
+      redirect("/")
+    }
+
+    if(error){
+      console.log(error)
+    }
+
+    
+  
+  };
+
+
+
   return (
     <div className="flex flex-col items-center  my-10">
       <h1 className="text-2xl font-bold my-3">অ্যাকাউন্ট তৈরি করুন</h1>
@@ -18,7 +45,7 @@ const SignUpPage = () => {
         বিনা খরচে সাইন আপ করে সব বিস্তারিত দাম দেখুন।
       </p>
       <div className="bg-white py-5 rounded-2xl border border-base-300 flex flex-col  ">
-        <Form className="flex flex-col max-w-md gap-4 p-6 ">
+        <Form className="flex flex-col max-w-md gap-4 p-6 " onSubmit={onSubmit}>
           <TextField
             isRequired
             name="name"
