@@ -6,7 +6,7 @@ import FooterSection from "./component/Footer";
 
 const balodatwo = Baloo_Da_2({
   subsets: ["latin", "bengali"],
-  weight: ["400", "700", "800"],
+  weight: ["400", "600", "700", "800"],
 });
 
 export const metadata: Metadata = {
