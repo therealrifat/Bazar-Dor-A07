@@ -6,6 +6,7 @@ import logo from "../../../public/logo-icon.png";
 import MarqueesText from "./MarqueeText";
 import Link from "next/link";
 import CurrentDate from "./currentDate";
+import NavCategory from "./navCategory";
 
 
 export interface ICategoryList {
@@ -64,16 +65,10 @@ const Navbar = async () => {
         </div>
 
         {/* category part */}
+        <NavCategory navList={navList}/>
 
 
-        <div className="flex gap-1 md:gap-3 md:justify-start justify-center"  >
-          {navList.map((p:ICategoryList )=><Link key={p.id} href={`/category/${p.id}`}>
-          <div key={p.id} className="flex gap-1">
-            <span>{p.icon}</span>
-            <p>{p.nameBn}</p>
-          </div>
-          </Link>)}
-        </div>
+        
       </div>
        <div className="border border-gray-300 py-2">
          <MarqueesText/>

@@ -15,7 +15,7 @@ const CategoryPage = async ({
 
   const category = data[0];
 
-  console.log(category);
+
 
   return (
     <div className="max-w-7xl mx-auto flex flex-col">
