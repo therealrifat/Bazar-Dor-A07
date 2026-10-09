@@ -38,7 +38,12 @@ const ProductDetails = async ({
     `https://api.api-store.workers.dev/api/bazardor/products/${Id}`,
   );
   const productData: IFProduct = await res.json();
-  console.log(productData);
+  console.log("test",productData);
+  const maxNumberArry = productData.markets.map((p)=> p.max)
+  const maxNum = Math.max(...maxNumberArry)
+  const minNumberArry = productData.markets.map((p)=> p.min)
+  const minNum = Math.min(...minNumberArry)
+
 
   return (
     <div className="max-w-7xl mx-auto my-14">
@@ -124,21 +129,21 @@ const ProductDetails = async ({
           <div className="flex flex-col bg-white p-8 border border-green-300 rounded-2xl">
             <span className="text-lg">সর্বনিম্ন দাম</span>
             <span className="text-3xl text-green-600 font-bold">
-              59 <span className="text-lg">টাকা</span>
+              {minNum.toLocaleString('bn-BD')} <span className="text-lg">টাকা</span>
             </span>
             <span>সবচেয়ে কম দামের বাজার</span>
           </div>
           <div className="flex flex-col bg-white p-8 border border-green-300 rounded-2xl">
             <span className="text-lg">সর্বাধিক দাম</span>
             <span className="text-3xl text-red-500 font-bold">
-              59 <span className="text-lg">টাকা</span>
+              {maxNum.toLocaleString('bn-BD')} <span className="text-lg">টাকা</span>
             </span>
             <span>সবচেয়ে বেশি দামের বাজার</span>
           </div>
           <div className="flex flex-col bg-white p-8 border border-green-300 rounded-2xl">
             <span className="text-lg">গড় দাম</span>
             <span className="text-3xl text-green-600 font-bold">
-              59 <span className="text-lg">টাকা</span>
+              {((maxNum + minNum)/2).toLocaleString('bn-BD')} <span className="text-lg">টাকা</span>
             </span>
             <span>
               প্রতি <span>কেজি</span>-এর হিসাবে
