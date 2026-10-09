@@ -1,47 +1,136 @@
+"use client";
+import {
+  Button,
+  FieldError,
+  Form,
+  Input,
+  Label,
+  TextField,
+} from "@heroui/react";
 import Link from "next/link";
-import React from "react";
 import { FaGithub } from "react-icons/fa";
 import { FcGoogle } from "react-icons/fc";
-
 const SignUpPage = () => {
-
-
   return (
-    <div className="flex flex-col items-center my-10 ">
+    <div className="flex flex-col items-center  my-10">
       <h1 className="text-2xl font-bold my-3">অ্যাকাউন্ট তৈরি করুন</h1>
-      <p className="text-[#48728d] mb-3">বিনা খরচে সাইন আপ করে সব বিস্তারিত দাম দেখুন।</p>
-      
-      <div className="bg-white py-5 rounded-2xl border border-base-300 ">
-        <form className="flex flex-col items-center">
-            <fieldset className="fieldset  w-md py-5 px-10">
-            <label className="label font-semibold text-[16px] text-black ">নাম</label>
-            <input type="text" className="input w-sm" placeholder="যেমন: রহিম উদ্দিন" />
-            <label className="label font-semibold text-[16px] text-black">ইমেইল</label>
-            <input type="email" className="input  w-sm" placeholder="you@example.com" />
+      <p className="text-[#48728d] mb-3">
+        বিনা খরচে সাইন আপ করে সব বিস্তারিত দাম দেখুন।
+      </p>
+      <div className="bg-white py-5 rounded-2xl border border-base-300 flex flex-col  ">
+        <Form className="flex flex-col max-w-md gap-4 p-6 ">
+          <TextField
+            isRequired
+            name="name"
+            className="flex flex-col w-sm "
+            validate={(value) => {
+              if (value.length < 3) {
+                return "Name must be at least 3 characters";
+              }
+              return null;
+            }}
+          >
+            <Label className="font-semibold text-[16px] text-black">নাম</Label>
+            <Input placeholder="যেমন: রহিম উদ্দিন" className='w-full' />
+            <FieldError />
+          </TextField>
 
-            <label className="label font-semibold text-[16px] text-black">পাসওয়ার্ড</label>
-            <input type="password" className="input  w-sm" placeholder="কমপক্ষে ৮ অক্ষর" min={8} />
 
-            <label className="label  text-black text-[16px]  font-semibold">পাসওয়ার্ড নিশ্চিত করুন</label>
-            <input type="password" className="input  w-sm" placeholder="আবার লিখুন" />
+          <TextField
+            isRequired
+            name="email"
+            className="flex flex-col w-sm "
+            type="email"
+            validate={(value) => {
+              if (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i.test(value)) {
+                return "Please enter a valid email address";
+              }
+              return null;
+            }}
+          >
+            <Label className="font-semibold text-[16px] text-black ">
+              ইমেইল
+            </Label>
+            <Input placeholder="you@example.com" className="w-full" />
+            <FieldError />
+          </TextField>
 
-            <button className="btn bg-[#05893e] mt-4 font-semibold text-white text-lg">অ্যাকাউন্ট তৈরি করুন</button>
-        </fieldset>
-        </form>
-          <div className="divider px-5">অথবা</div>
+          <TextField
+            isRequired
+            minLength={8}
+            className="flex flex-col w-sm"
+            name="password"
+            type="password"
+            validate={(value) => {
+              if (value.length < 8) {
+                return "Password must be at least 8 characters";
+              }
+              if (!/[A-Z]/.test(value)) {
+                return "Password must contain at least one uppercase letter";
+              }
+              if (!/[0-9]/.test(value)) {
+                return "Password must contain at least one number";
+              }
+              return null;
+            }}
+          >
+            <Label className="font-semibold text-[16px] text-black">
+              পাসওয়ার্ড
+            </Label>
+            <Input placeholder="কমপক্ষে ৮ অক্ষর" className="w-full" />
+
+            <FieldError />
+          </TextField>
+          <TextField
+            isRequired
+            minLength={8}
+            className="flex flex-col w-sm"
+            name="password"
+            type="password"
+            validate={(value) => {
+              if (value.length < 8) {
+                return "Password must be at least 8 characters";
+              }
+              if (!/[A-Z]/.test(value)) {
+                return "Password must contain at least one uppercase letter";
+              }
+              if (!/[0-9]/.test(value)) {
+                return "Password must contain at least one number";
+              }
+              return null;
+            }}
+          >
+            <Label className="font-semibold text-[16px] text-black">
+              পাসওয়ার্ড
+            </Label>
+            <Input placeholder="আবার লিখুন" className="w-full" />
+
+            <FieldError />
+          </TextField>
           <div className="flex gap-2 justify-center">
-            <button className=" text-sm border border-gray-400 p-2 rounded-lg flex items-center gap-2"><FcGoogle />Google দিয়ে চালিয়ে যান</button>
-            <button className=" text-sm border border-gray-400 p-2 rounded-lg flex items-center gap-2"><FaGithub/>GitHub দিয়ে চালিয়ে যান</button>
+            <Button
+              type="submit"
+              className="btn bg-[#05893e] mt-4 font-semibold text-white text-lg w-full "
+            >
+              অ্যাকাউন্ট তৈরি করুন
+            </Button>
           </div>
-          <p className="text-center my-2">অ্যাকাউন্ট আছে? <Link href='/signin' className="text-gray-500">সাইন ইন করুন</Link></p>
-
-      
-
+        </Form>
+        <div className="divider px-5">অথবা</div>
+        <div className="flex gap-2 justify-center">
+          <button className=" text-sm border border-gray-400 p-2 rounded-lg flex items-center gap-2">
+            <FcGoogle />
+            Google দিয়ে চালিয়ে যান
+          </button>
+          <button className=" text-sm border border-gray-400 p-2 rounded-lg flex items-center gap-2">
+            <FaGithub />
+            GitHub দিয়ে চালিয়ে যান
+          </button>
+        </div>
+        <p className="text-center my-2">অ্যাকাউন্ট আছে? <Link href='/signin' className="text-gray-500"> সাইন ইন করুন</Link></p>
 
       </div>
       <Link href="/"><p className="my-5">← হোম পেজে ফিরে যান</p></Link>
-
-
     </div>
   );
 };
