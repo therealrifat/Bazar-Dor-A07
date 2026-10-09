@@ -9,7 +9,7 @@ const MarqueesText = async() => {
 
 
   return (
-    <MarqueeText duration={25}  direction="right" className="">
+    <MarqueeText duration={15}  direction="right" className="">
       <div className="flex gap-10">
         {productList.map( (product:IProduct)=> <div key={product.id}>
             <Link href={`/product/${product.id}`}>

@@ -1,14 +1,17 @@
+'use client'
+import React, { useEffect, useState } from 'react';
 
-import React from 'react';
 
-const CurrentDate =async () => {
+const CurrentDate = () => {
+const [date, setDate] = useState<string | null>(null)
 
-    const today = new Date().toLocaleDateString("bn-bd",{
+useEffect(() => {setDate (new Date().toLocaleDateString("bn-bd",{
         dateStyle: "full"
-    })
+    }))}, [])
 
+    
 
-    return <span>{today}</span>
+    return <span>{date}</span>
 };
 
 export default CurrentDate;

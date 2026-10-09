@@ -63,16 +63,16 @@ const ProductDetails = async ({
               ㆍ <span>{productData.categoryNameBn}</span>
             </p>
             <h4>
-              গতকালের তুলনায় আজ দাম{" "}
-              <span>
+              গতকালের তুলনায় আজ দাম
+              <span className="font-bold">
                 {" "}
                 {productData.change.dir === "up"
                   ? "বেড়েছে"
                   : productData.change.dir === "down"
                     ? "কমেছে"
                     : "সমান"}
-              </span>{" "}
-              ㆍ{" "}
+              </span>
+              ㆍ
               <span>{Math.abs(productData.today - productData.yesterday)}</span>{" "}
               টাকা
             </h4>
