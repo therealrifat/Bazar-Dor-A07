@@ -1,6 +1,7 @@
 import Image from "next/image";
 import logo from "../../../public/logo-icon.png";
 import MarqueesText from "./MarqueeText";
+import Link from "next/link";
 
 export interface ICategoryList {
   id: string
@@ -40,7 +41,7 @@ const Navbar = async () => {
               className="bg-green-700 p-4 rounded-lg hidden md:inline"
             />
             <div>
-              <h4 className=" text-2xl font-extrabold">বাজার দর</h4>
+              <Link href='/'><h4 className=" text-2xl font-extrabold">বাজার দর</h4></Link>
 
               <p>{today}</p>
             </div>
