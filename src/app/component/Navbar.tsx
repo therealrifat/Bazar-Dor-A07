@@ -29,6 +29,7 @@ export const categoryList = async () => {
 const Navbar = async () => {
 
 
+
   const navList = await categoryList()
 
 

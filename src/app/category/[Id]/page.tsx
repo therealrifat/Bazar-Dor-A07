@@ -1,20 +1,62 @@
-import React from 'react';
+import ProductCard from "@/app/component/productCard";
+import { IProduct } from "@/app/page";
+import React from "react";
 
-const CategoryPage = async({params}:{params: Promise<{ Id: string }>}) => {
-    const {Id} = await params 
-    const res = await fetch(`https://api.abcz.workers.dev/api/bazardor/products?category=${Id}`)
-    const data = await res.json()
+const CategoryPage = async ({
+  params,
+}: {
+  params: Promise<{ Id: string }>;
+}) => {
+  const { Id } = await params;
+  const res = await fetch(
+    `https://api.abcz.workers.dev/api/bazardor/products?category=${Id}`,
+  );
+  const data = await res.json();
 
-    console.log(data)
+  const category = data[0];
 
+  console.log(category);
 
-    return (
-        <div className='max-w-7xl mx-auto'>
-            <div>
+  return (
+    <div className="max-w-7xl mx-auto flex flex-col">
+      {/* first category heading  */}
+      <div className="flex gap-5 bg-white w-7xl p-4 items-center mt-10 rounded-2xl">
+        <div className="text-5xl bg-[#f0f5f0] py-6 px-5 rounded-2xl items-center">
+          <h2>{category.categoryIcon}</h2>
+        </div>
+        <div className="">
+          <h2 className="text-4xl font-semibold">{category.categoryNameBn}</h2>
+          <p>
+            {data.length.toLocaleString("bn-BD")} টি পণ্যের আজকের দাম ও পরিবর্তন
+          </p>
+        </div>
+      </div>
 
+      <div className="flex justify-end items-center gap-2 my-10 w-7xl bg-white py-6 px-10 rounded-2xl">
+          <span>সাজান</span>
+          <select
+            defaultValue="Pick a Framework"
+            className="select select-success w-31"
+          >
+            <option disabled={true}>ডিফল্ট </option>
+            <option>কম থেকে বেশি</option>
+            <option>বেশি থেকে কম</option>
+          </select>
+          
+        </div>
+
+        <div className=" space-y-5">
+            <p>
+                মোট {data.length.toLocaleString("bn-BD")} টি পণ্য দেখানো হচ্ছে
+            </p>
+            <div className='grid md:grid-cols-3 grid-cols-2 gap-3 '>
+                {data.map((product: IProduct) => <ProductCard key={product.id} product={product}/>)}
             </div>
         </div>
-    );
+
+
+    </div>
+  );
 };
 
 export default CategoryPage;
