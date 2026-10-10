@@ -1,6 +1,7 @@
-import ProductCard from "@/app/component/productCard";
-import { IProduct } from "@/app/page";
-import React from "react";
+
+import SortData from "@/app/component/sortData";
+
+
 
 const CategoryPage = async ({
   params,
@@ -9,7 +10,7 @@ const CategoryPage = async ({
 }) => {
   const { Id } = await params;
   const res = await fetch(
-    `https://api.abcz.workers.dev/api/bazardor/products?category=${Id}`,
+    `https://openapi.programming-hero.com/api/bazardor/products?category=${Id}`,
   );
   const data = await res.json();
 
@@ -32,15 +33,15 @@ const CategoryPage = async ({
         </div>
       </div>
 
-      <div className="flex justify-end items-center gap-2 my-10 w-7xl bg-white py-6 px-10 rounded-2xl">
+      {/* <div className="flex justify-end items-center gap-2 my-10 w-7xl bg-white py-6 px-10 rounded-2xl">
           <span>সাজান</span>
           <select
             defaultValue="Pick a Framework"
-            className="select select-success w-31"
+            className=" select select-success w-35 "
           >
             <option disabled={true}>ডিফল্ট </option>
-            <option>কম থেকে বেশি</option>
-            <option>বেশি থেকে কম</option>
+            <option value={"ascending"}>কম থেকে বেশি</option>
+            <option value={"descending"}>বেশি থেকে কম</option>
           </select>
           
         </div>
@@ -52,7 +53,9 @@ const CategoryPage = async ({
             <div className='grid md:grid-cols-3 grid-cols-2 gap-3 '>
                 {data.map((product: IProduct) => <ProductCard key={product.id} product={product}/>)}
             </div>
-        </div>
+        </div> */}
+
+     <SortData data={data}/>
 
 
     </div>
