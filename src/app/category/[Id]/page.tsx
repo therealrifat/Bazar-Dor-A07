@@ -27,7 +27,7 @@ const CategoryPage = async ({
   return (
     <div className="max-w-7xl mx-auto flex flex-col">
       {/* first category heading  */}
-      <div className="flex gap-5 bg-white w-7xl p-4 items-center mt-10 rounded-2xl">
+      <div className="flex gap-5 bg-white md:w-7xl p-4 items-center mt-10 rounded-2xl">
         <div className="text-5xl bg-[#f0f5f0] py-6 px-5 rounded-2xl items-center">
           <h2>{category.categoryIcon}</h2>
         </div>

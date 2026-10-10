@@ -18,7 +18,6 @@ import SignOut from "@/app/component/signOut";
 const ProfilePage = () => {
   const { data: session } = useSession();
 
-
   const onSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     const formData = new FormData(e.currentTarget);
@@ -37,7 +36,7 @@ const ProfilePage = () => {
         <h3 className="text-2xl">আমার প্রোফাইল</h3>
         <p>আপনার অ্যাকাউন্টের তথ্য এখানে দেখুন।</p>
       </div>
-      <div className="flex gap-5 justify-between  items-center bg-white w-2xl md:rounded-2xl p-5">
+      <div className="flex gap-5 justify-between  items-center bg-white md:w-2xl md:rounded-2xl p-5">
         <div className="flex gap-2.5 items-center">
           <div className="overflow-hidden object-center w-20 h-20 rounded-lg">
             {session?.user.image ? (
@@ -62,8 +61,7 @@ const ProfilePage = () => {
           </div>
         </div>
         <div className="flex gap-2 items-center text-red-500 border px-3 py-2 rounded-lg ">
-
-        <SignOut/>
+          <SignOut />
         </div>
       </div>
 
