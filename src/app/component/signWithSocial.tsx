@@ -11,10 +11,15 @@ const SignWithSocial = () => {
                 provider: "google"
             }
 
-        )
-        
+        )  
+    }
+    const signInGithub = async()=>{
+        const data = await signIn.social(
+            {
+                provider: "github"
+            }
 
-     
+        )  
     }
 
 
@@ -24,7 +29,7 @@ const SignWithSocial = () => {
         <FcGoogle />
         Google দিয়ে চালিয়ে যান
       </button>
-      <button className=" text-sm border border-gray-400 p-2 rounded-lg flex items-center gap-2">
+      <button onClick={signInGithub} className=" text-sm border border-gray-400 p-2 rounded-lg flex items-center gap-2">
         <FaGithub />
         GitHub দিয়ে চালিয়ে যান
       </button>
