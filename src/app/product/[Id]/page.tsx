@@ -36,7 +36,7 @@ const ProductDetails = async ({
 }) => {
   const { Id } = await params;
   const res = await fetch(
-    `https://openapi.programming-hero.com/api/bazardor/products/${Id}`,
+    `https://openapi.programming-hero.com/api/bazardor/products/${Id}`,{cache:"no-store"}
   );
   const productData: IFProduct = await res.json();
 if(!productData || !productData?.markets){

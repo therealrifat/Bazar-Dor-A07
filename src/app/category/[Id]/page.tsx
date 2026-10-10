@@ -4,6 +4,7 @@ import { notFound } from "next/navigation";
 
 
 
+
 const CategoryPage = async ({
   params,
 }: {
@@ -11,11 +12,11 @@ const CategoryPage = async ({
 }) => {
   const { Id } = await params;
 
-    const res = await fetch(`https://openapi.programming-hero.com/api/bazardor/products?category=${Id}`);
+    const res = await fetch(`https://openapi.programming-hero.com/api/bazardor/products?category=${Id}`, {cache:"no-store"});
     const data = await res.json();
 
   const category = data[0];
-  console.log(category)
+
     if(!data || !category?.categoryIcon){
       notFound()
     }
@@ -38,29 +39,11 @@ const CategoryPage = async ({
         </div>
       </div>
 
-      {/* <div className="flex justify-end items-center gap-2 my-10 w-7xl bg-white py-6 px-10 rounded-2xl">
-          <span>সাজান</span>
-          <select
-            defaultValue="Pick a Framework"
-            className=" select select-success w-35 "
-          >
-            <option disabled={true}>ডিফল্ট </option>
-            <option value={"ascending"}>কম থেকে বেশি</option>
-            <option value={"descending"}>বেশি থেকে কম</option>
-          </select>
-          
-        </div>
-
-        <div className=" space-y-5">
-            <p>
-                মোট {data.length.toLocaleString("bn-BD")} টি পণ্য দেখানো হচ্ছে
-            </p>
-            <div className='grid md:grid-cols-3 grid-cols-2 gap-3 '>
-                {data.map((product: IProduct) => <ProductCard key={product.id} product={product}/>)}
-            </div>
-        </div> */}
+      
+    
 
      <SortData data={data}/>
+
 
 
     </div>

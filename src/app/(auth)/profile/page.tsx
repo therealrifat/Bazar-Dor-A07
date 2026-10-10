@@ -17,7 +17,7 @@ import SignOut from "@/app/component/signOut";
 
 const ProfilePage = () => {
   const { data: session } = useSession();
-  console.log(session);
+
 
   const onSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
