@@ -1,10 +1,11 @@
 "use client";
-import { signOut, useSession } from "@/lib/auth-client";
+import { useSession } from "@/lib/auth-client";
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
 import { FaRegUser } from "react-icons/fa";
-import { PiSignOutThin } from "react-icons/pi";
+
+import SignOut from "./signOut";
 
 const AuthBtn = () => {
   const { data: session } = useSession();
@@ -57,13 +58,7 @@ const AuthBtn = () => {
                 </Link>
               </li>
               <li>
-                <button
-                  className="flex items-center text-red-500"
-                  onClick={() => signOut()}
-                >
-                  <PiSignOutThin />
-                  Sign out
-                </button>
+                <SignOut/>
               </li>
             </ul>
           </div>

@@ -20,7 +20,7 @@ const SignInPage = () => {
     const formData = new FormData(e.currentTarget);
     const user = Object.fromEntries(formData.entries()) as {name: string, email: string, password: string} 
 
-    console.log(user)
+
     const {data, error} = await signIn.email(
       {
         ...user,

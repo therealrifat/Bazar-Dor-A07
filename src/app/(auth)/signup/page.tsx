@@ -22,7 +22,7 @@ const SignUpPage =() => {
     e.preventDefault();
     const formData = new FormData(e.currentTarget);
     const user = Object.fromEntries(formData.entries()) as {name: string, email: string, password: string} 
-    // console.log(user)
+
     const {data, error} = await signUp.email(
       {
         ...user,

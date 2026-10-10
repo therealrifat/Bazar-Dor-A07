@@ -8,11 +8,12 @@ import {
   TextField,
 } from "@heroui/react";
 
-import { signOut, updateUser, useSession } from "@/lib/auth-client";
+import { updateUser, useSession } from "@/lib/auth-client";
 import Image from "next/image";
 import React from "react";
-import { PiSignOutThin } from "react-icons/pi";
+
 import toast from "react-hot-toast";
+import SignOut from "@/app/component/signOut";
 
 const ProfilePage = () => {
   const { data: session } = useSession();
@@ -60,13 +61,10 @@ const ProfilePage = () => {
             <p className="text-gray-500">{session?.user.email}</p>
           </div>
         </div>
-        <button
-          className="flex gap-2 items-center text-red-500 border px-3 py-2 rounded-lg cursor-pointer"
-          onClick={() => signOut()}
-        >
-          <PiSignOutThin />
-          Sign out
-        </button>
+        <div className="flex gap-2 items-center text-red-500 border px-3 py-2 rounded-lg ">
+
+        <SignOut/>
+        </div>
       </div>
 
       {/* update Profile */}

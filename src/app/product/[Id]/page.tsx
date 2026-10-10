@@ -1,3 +1,4 @@
+import { notFound } from "next/navigation";
 import React from "react";
 export interface IFProduct {
   id: number;
@@ -38,8 +39,11 @@ const ProductDetails = async ({
     `https://openapi.programming-hero.com/api/bazardor/products/${Id}`,
   );
   const productData: IFProduct = await res.json();
-  console.log("test",productData);
+if(!productData || !productData?.markets){
+    notFound()
+   }
   const maxNumberArry = productData.markets.map((p)=> p.max)
+   
   const maxNum = Math.max(...maxNumberArry)
   const minNumberArry = productData.markets.map((p)=> p.min)
   const minNum = Math.min(...minNumberArry)
