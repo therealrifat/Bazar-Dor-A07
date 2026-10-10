@@ -21,7 +21,9 @@ This project is built using modern web technologies to ensure fast performance a
 * **Frontend Framework:** Next.js / React
 * **Styling:** Tailwind CSS / CSS Modules
 * **Deployment:** Vercel
-
+* **Component Library:** Hero UI
+* **Component Library:** desy UI
+* **Toast:** React Hot Toast
 ---
 
 ## ✨ 5 Key Features
