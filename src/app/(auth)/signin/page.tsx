@@ -1,4 +1,5 @@
 "use client";
+import { signIn } from "@/lib/auth-client";
 import {
   Button,
   FieldError,
@@ -11,6 +12,34 @@ import Link from "next/link";
 import { FaGithub } from "react-icons/fa";
 import { FcGoogle } from "react-icons/fc";
 const SignInPage = () => {
+
+  const onSubmit= async(e: React.FormEvent<HTMLFormElement>)=>{
+    e.preventDefault();
+    const formData = new FormData(e.currentTarget);
+    const user = Object.fromEntries(formData.entries()) as {name: string, email: string, password: string} 
+
+    console.log(user)
+    const {data, error} = await signIn.email(
+      {
+        ...user,
+        callbackURL:"/"
+      }
+    )
+
+    if(data){
+      console.log(data)
+    }
+    
+    if(error){
+      console.log(error)
+    }
+
+
+
+
+
+  }
+
   return (
     <div className="flex flex-col items-center  my-10">
       <h1 className="text-2xl font-bold my-3">সাইন ইন</h1>
@@ -18,7 +47,7 @@ const SignInPage = () => {
         বিস্তারিত দাম, বাজার তুলনা ও প্রোফাইল দেখতে অ্যাকাউন্টে ঢুকুন।
       </p>
       <div className="bg-white py-5 rounded-2xl border border-base-300 flex flex-col  ">
-        <Form className="flex flex-col max-w-md gap-4 p-6 ">
+        <Form className="flex flex-col max-w-md gap-4 p-6 " onSubmit={onSubmit}>
           <TextField
             isRequired
             name="email"
@@ -69,7 +98,7 @@ const SignInPage = () => {
               type="submit"
               className="btn bg-[#05893e] mt-4 font-semibold text-white text-lg w-full "
             >
-              অ্যাকাউন্ট তৈরি করুন
+              সাইন ইন
             </Button>
           </div>
         </Form>

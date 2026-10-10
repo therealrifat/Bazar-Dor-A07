@@ -8,10 +8,13 @@ import {
   Label,
   TextField,
 } from "@heroui/react";
-import { redirect } from "next/dist/server/api-utils";
+
 import Link from "next/link";
+import { redirect } from "next/navigation";
 import { FaGithub } from "react-icons/fa";
 import { FcGoogle } from "react-icons/fc";
+
+
 const SignUpPage =() => {
   const onSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -25,7 +28,8 @@ const SignUpPage =() => {
     )
     if(data){
       console.log(data)
-      redirect("/")
+      redirect("/");
+
     }
 
     if(error){
