@@ -7,6 +7,7 @@ import MarqueesText from "./MarqueeText";
 import Link from "next/link";
 import CurrentDate from "./currentDate";
 import NavCategory from "./navCategory";
+import AuthBtn from "./authBtn";
 
 
 export interface ICategoryList {
@@ -56,12 +57,7 @@ const Navbar = async () => {
             </div>
           </div>
 
-          <div className="flex gap-5 items-center">
-            <Link href='/signin'><h4 className="font-bold">সাইন ইন </h4></Link>
-            <Link href="/signup"><h4 className="bg-green-700 py-2 px-4 rounded-lg font-bold text-white">
-              সাইন আপ
-            </h4></Link>
-          </div>
+          <AuthBtn/>
         </div>
 
         {/* category part */}

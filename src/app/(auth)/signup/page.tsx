@@ -30,14 +30,13 @@ const SignUpPage =() => {
     )
     if(data){
       toast.success("অ্যাকাউন্ট তৈরি করা হয়েছে")
-      console.log(data)
+
       redirect("/");
 
     }
 
     if(error){
       toast.error(error.message as string)
-      console.log(error)
     }
 
     
