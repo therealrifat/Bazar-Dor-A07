@@ -1,5 +1,6 @@
 
 import SortData from "@/app/component/sortData";
+import { notFound } from "next/navigation";
 
 
 
@@ -9,12 +10,16 @@ const CategoryPage = async ({
   params: Promise<{ Id: string }>;
 }) => {
   const { Id } = await params;
-  const res = await fetch(
-    `https://openapi.programming-hero.com/api/bazardor/products?category=${Id}`,
-  );
-  const data = await res.json();
+
+    const res = await fetch(`https://openapi.programming-hero.com/api/bazardor/products?category=${Id}`);
+    const data = await res.json();
 
   const category = data[0];
+  console.log(category)
+    if(!data || !category?.categoryIcon){
+      notFound()
+    }
+
 
 
 
