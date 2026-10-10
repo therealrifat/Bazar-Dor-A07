@@ -1,13 +1,34 @@
 "use client";
+import {
+  Button,
+  FieldError,
+  Form,
+  Input,
+  Label,
+  TextField,
+} from "@heroui/react";
 
-import { signOut, useSession } from "@/lib/auth-client";
+import { signOut, updateUser, useSession } from "@/lib/auth-client";
 import Image from "next/image";
 import React from "react";
 import { PiSignOutThin } from "react-icons/pi";
+import toast from "react-hot-toast";
 
 const ProfilePage = () => {
   const { data: session } = useSession();
   console.log(session);
+
+  const onSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    const formData = new FormData(e.currentTarget);
+    const user = Object.fromEntries(formData.entries()) as { name: string };
+
+    await updateUser({
+      ...user,
+    });
+
+    toast.success(`Update Successfull ${user.name}`);
+  };
 
   return (
     <div className="flex flex-col max-w-7xl mx-auto my-20">
@@ -40,12 +61,51 @@ const ProfilePage = () => {
           </div>
         </div>
         <button
-          className="flex gap-2 items-center text-red-500 border px-3 py-2 rounded-lg"
+          className="flex gap-2 items-center text-red-500 border px-3 py-2 rounded-lg cursor-pointer"
           onClick={() => signOut()}
         >
           <PiSignOutThin />
           Sign out
         </button>
+      </div>
+
+      {/* update Profile */}
+
+      <div className="mt-10 bg-white flex flex-col  p-5 rounded-2xl">
+        <h4 className="font-bold text-left">তথ্য</h4>
+        <div className=" flex flex-col items-center p-5 rounded-2xl">
+          <Form
+            onSubmit={onSubmit}
+            className="flex flex-col max-w-md gap-4 p-6  "
+          >
+            <TextField
+              isRequired
+              name="name"
+              className="flex flex-col w-sm "
+              validate={(value) => {
+                if (value.length < 3) {
+                  return "Name must be at least 3 characters";
+                }
+                return null;
+              }}
+            >
+              <Label className="font-semibold text-[16px] text-black">
+                নাম
+              </Label>
+              <Input placeholder="যেমন: রহিম উদ্দিন" className="w-full" />
+              <FieldError />
+            </TextField>
+
+            <div className="flex gap-2 justify-center">
+              <Button
+                type="submit"
+                className="btn bg-[#05893e] mt-4 font-semibold text-white text-lg w-full "
+              >
+                আপডেট
+              </Button>
+            </div>
+          </Form>
+        </div>
       </div>
     </div>
   );
