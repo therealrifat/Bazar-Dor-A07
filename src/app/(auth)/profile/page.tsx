@@ -12,7 +12,7 @@ const ProfilePage = () => {
   return (
     <div className="flex flex-col max-w-7xl mx-auto my-20">
       <div className="my-10">
-        <h3 className="text-2xl">আমার প্রোফাইল </h3>
+        <h3 className="text-2xl">আমার প্রোফাইল</h3>
         <p>আপনার অ্যাকাউন্টের তথ্য এখানে দেখুন।</p>
       </div>
       <div className="flex gap-5 justify-between  items-center bg-white w-2xl md:rounded-2xl p-5">
