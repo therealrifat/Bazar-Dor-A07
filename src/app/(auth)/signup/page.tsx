@@ -11,6 +11,8 @@ import {
 
 import Link from "next/link";
 import { redirect } from "next/navigation";
+import toast from "react-hot-toast";
+
 import { FaGithub } from "react-icons/fa";
 import { FcGoogle } from "react-icons/fc";
 
@@ -27,12 +29,14 @@ const SignUpPage =() => {
       }
     )
     if(data){
+      toast.success("অ্যাকাউন্ট তৈরি করা হয়েছে")
       console.log(data)
       redirect("/");
 
     }
 
     if(error){
+      toast.error(error.message as string)
       console.log(error)
     }
 
@@ -162,6 +166,7 @@ const SignUpPage =() => {
 
       </div>
       <Link href="/"><p className="my-5">← হোম পেজে ফিরে যান</p></Link>
+      
     </div>
   );
 };

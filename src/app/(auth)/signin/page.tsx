@@ -9,6 +9,8 @@ import {
   TextField,
 } from "@heroui/react";
 import Link from "next/link";
+import toast from "react-hot-toast";
+
 import { FaGithub } from "react-icons/fa";
 import { FcGoogle } from "react-icons/fc";
 const SignInPage = () => {
@@ -27,11 +29,12 @@ const SignInPage = () => {
     )
 
     if(data){
-      console.log(data)
+      toast.success("Sign In Successfull")
+
     }
     
     if(error){
-      console.log(error)
+      toast.error(error.message as string)
     }
 
 
@@ -117,6 +120,8 @@ const SignInPage = () => {
 
       </div>
       <Link href="/"><p className="my-5">← হোম পেজে ফিরে যান</p></Link>
+      
+
     </div>
   );
 };
