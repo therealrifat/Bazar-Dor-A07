@@ -7,7 +7,7 @@ import { PiSignOutThin } from "react-icons/pi";
 
 const AuthBtn = () => {
   const { data: session } = useSession();
-  console.log(session);
+
   return (
     <div>
       {session?.user ? (

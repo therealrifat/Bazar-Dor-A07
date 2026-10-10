@@ -58,7 +58,7 @@ const SignInPage = () => {
             type="email"
             validate={(value) => {
               if (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i.test(value)) {
-                return "Please enter a valid email address";
+                return "অনুগ্রহ করে একটি বৈধ ইমেল ঠিকানা লিখুন।";
               }
               return null;
             }}
@@ -78,13 +78,13 @@ const SignInPage = () => {
             type="password"
             validate={(value) => {
               if (value.length < 8) {
-                return "Password must be at least 8 characters";
+                return "পাসওয়ার্ডটি অবশ্যই অন্তত ৮ অক্ষরের হতে হবে।";
               }
               if (!/[A-Z]/.test(value)) {
-                return "Password must contain at least one uppercase letter";
+                return  "পাসওয়ার্ডে অন্তত একটি বড় হাতের অক্ষর থাকতে হবে।";
               }
               if (!/[0-9]/.test(value)) {
-                return "Password must contain at least one number";
+                return "পাসওয়ার্ডে অন্তত একটি সংখ্যা থাকতে হবে।";
               }
               return null;
             }}
