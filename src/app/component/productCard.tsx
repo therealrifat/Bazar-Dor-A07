@@ -26,7 +26,7 @@ const ProductCard = ({ product }: { product: IProduct }) => {
                   ? "প্রতি কেজি"
                   : product.unit === "litre"
                     ? "প্রতি লিটার"
-                    : " ডজন "}
+                    : product.unit === "dozen" ? "ডজন" : "পিছ"}
               </p>
             </div>
           </div>
