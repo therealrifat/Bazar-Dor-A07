@@ -17,20 +17,27 @@ const ProfilePage = () => {
       </div>
       <div className="flex gap-5 justify-between  items-center bg-white w-2xl md:rounded-2xl p-5">
         <div className="flex gap-2.5 items-center">
-
-        
-        <div className="overflow-hidden object-center w-20 h-20 rounded-lg">
-          <Image
-            src={`https://i.pinimg.com/originals/0f/4f/56/0f4f560ef645a2eb83d898e895ee7be0.jpg`}
-            width={100}
-            height={100}
-            alt="user-profile"
-          />
-        </div>
-        <div>
-          <h4 className="text-2xl font-bold">{session?.user.name}</h4>
-          <p className="text-gray-500">{session?.user.email}</p>
-        </div>
+          <div className="overflow-hidden object-center w-20 h-20 rounded-lg">
+            {session?.user.image ? (
+              <Image
+                src={session.user.image}
+                width={100}
+                height={100}
+                alt="user-profile"
+              />
+            ) : (
+              <Image
+                src={`https://i.pinimg.com/originals/0f/4f/56/0f4f560ef645a2eb83d898e895ee7be0.jpg`}
+                width={100}
+                height={100}
+                alt="user-profile"
+              />
+            )}
+          </div>
+          <div>
+            <h4 className="text-2xl font-bold">{session?.user.name}</h4>
+            <p className="text-gray-500">{session?.user.email}</p>
+          </div>
         </div>
         <button
           className="flex items-center text-red-500"

@@ -1,4 +1,5 @@
 "use client";
+import SignWithSocial from "@/app/component/signWithSocial";
 import { signIn } from "@/lib/auth-client";
 import {
   Button,
@@ -11,8 +12,7 @@ import {
 import Link from "next/link";
 import toast from "react-hot-toast";
 
-import { FaGithub } from "react-icons/fa";
-import { FcGoogle } from "react-icons/fc";
+
 const SignInPage = () => {
 
   const onSubmit= async(e: React.FormEvent<HTMLFormElement>)=>{
@@ -106,16 +106,11 @@ const SignInPage = () => {
           </div>
         </Form>
         <div className="divider px-5">অথবা</div>
-        <div className="flex gap-2 justify-center">
-          <button className=" text-sm border border-gray-400 p-2 rounded-lg flex items-center gap-2">
-            <FcGoogle />
-            Google দিয়ে চালিয়ে যান
-          </button>
-          <button className=" text-sm border border-gray-400 p-2 rounded-lg flex items-center gap-2">
-            <FaGithub />
-            GitHub দিয়ে চালিয়ে যান
-          </button>
-        </div>
+        
+        {/* social provider */}
+
+        <SignWithSocial />
+
         <p className="text-center my-2">অ্যাকাউন্ট নেই? <Link href='/signup' className="text-gray-500">সাইন আপ করুন</Link></p>
 
       </div>
