@@ -68,7 +68,7 @@ const Navbar = async () => {
 
         
       </div>
-       <div className="border border-gray-300 py-2">
+       <div className="border border-gray-300 py-2 ">
          <MarqueesText/>
        </div>
     </nav>
