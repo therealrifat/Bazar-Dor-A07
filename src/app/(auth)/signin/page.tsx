@@ -11,20 +11,16 @@ import {
   TextField,
 } from "@heroui/react";
 import Link from "next/link";
-import { useSearchParams } from "next/navigation";
-import { useEffect } from "react";
+
+
 import toast from "react-hot-toast";
 
 
 const SignInPage = () => {
-  const searchParams = useSearchParams()
-  const reason = searchParams.get('reason')
 
-  useEffect(()=>{
-    if(reason === "login_required"){
-      toast.error("এই পেজটি দেখতে হলে আগে সাইন ইন করতে হবে!")
-    }
-  }, [reason])
+ 
+
+
 
   const onSubmit= async(e: React.FormEvent<HTMLFormElement>)=>{
     e.preventDefault();
