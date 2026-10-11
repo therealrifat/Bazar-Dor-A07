@@ -12,7 +12,7 @@ const ProductCard = ({ product }: { product: IProduct }) => {
       }
     >
       <Link href={`/product/${product.id}`}>
-        <div className="flex flex-col gap-2 bg-white border border-green-300 p-5 rounded-2xl ">
+        <div className="flex flex-col gap-2 bg-white border border-green-300 p-5 rounded-2xl hover:border-green-600 ">
           <div className="flex gap-2">
             <span className="p-4 bg-[#f0f5f0] rounded-2xl md:text-2xl">
               {product.image}
