@@ -20,8 +20,8 @@ const SortData = ({ data }: { data: IProduct[] }) => {
   const sortCategoryData = sortCategory(data);
 
   return (
-    <div>
-      <div className="flex justify-end items-center gap-2 my-10 md:w-7xl bg-white py-6 px-10 rounded-2xl">
+    <div className="">
+      <div className="flex justify-end items-center sm:max-w-170 md:max-w-full   gap-2 my-10 bg-white py-6 px-10 rounded-2xl">
         <span>সাজান</span>
         <select
           defaultValue="Pick a Framework"
@@ -36,7 +36,7 @@ const SortData = ({ data }: { data: IProduct[] }) => {
         </select>
       </div>
 
-      <Suspense fallback={<div className=" grid md:grid-cols-3  w-52  gap-4">
+      <Suspense fallback={<div className=" grid md:grid-cols-3  md:w-52  gap-4">
           <div className="skeleton h-32 w-full"></div>
           <div className="skeleton h-32 w-full"></div>
           <div className="skeleton h-32 w-full"></div>
@@ -45,7 +45,7 @@ const SortData = ({ data }: { data: IProduct[] }) => {
         </div>}>
         <div className=" space-y-5">
           <p>মোট {data.length.toLocaleString("bn-BD")} টি পণ্য দেখানো হচ্ছে</p>
-          <div className="grid md:grid-cols-3 grid-cols-2 gap-3 ">
+          <div className="grid sm:grid-cols-3  grid-cols-1 gap-3 ">
             {sortCategoryData.map((product: IProduct) => (
               <ProductCard key={product.id} product={product} />
             ))}

@@ -64,9 +64,9 @@ const AuthBtn = () => {
           </div>
         </div>
       ) : (
-        <div className="flex gap-5 items-center">
+        <div className="flex gap-2 items-center">
           <Link href="/signin">
-            <h4 className="font-bold">সাইন ইন </h4>
+            <h4 className="font-bold hover:bg-green-300 py-2 px-4 rounded-lg">সাইন ইন </h4>
           </Link>
           <Link href="/signup">
             <h4 className="bg-green-700 py-2 px-4 rounded-lg font-bold text-white">

@@ -12,16 +12,16 @@ const ProductCard = ({ product }: { product: IProduct }) => {
       }
     >
       <Link href={`/product/${product.id}`}>
-        <div className="flex flex-col gap-2 bg-white border border-green-300 p-5 rounded-2xl">
+        <div className="flex flex-col gap-2 bg-white border border-green-300 p-5 rounded-2xl ">
           <div className="flex gap-2">
-            <span className="p-4 bg-[#f0f5f0] rounded-2xl text-2xl">
+            <span className="p-4 bg-[#f0f5f0] rounded-2xl md:text-2xl">
               {product.image}
             </span>
             <div>
-              <h4 className="text-xl font-bold text-green-900">
+              <h4 className="md:text-xl font-bold text-green-900">
                 {product.nameBn}
               </h4>
-              <p>
+              <p className="md:text-md text-sm">
                 {product.unit == "kg"
                   ? "প্রতি কেজি"
                   : product.unit === "litre"
@@ -31,11 +31,11 @@ const ProductCard = ({ product }: { product: IProduct }) => {
             </div>
           </div>
           <div>
-            <p>আজকের দাম</p>
+            <p className="text-sm md:text-lg">আজকের দাম</p>
             <div className="flex justify-between">
-              <p className="text-2xl font-bold">
+              <p className="md:text-2xl font-bold">
                 {product.today.toLocaleString("bn-BD")}
-                <span className="text-xl"> টাকা</span>
+                <span className="md:text-xl text-lg"> টাকা</span>
               </p>
               <div className="px-3 py-1 bg-[#f0f5f0] rounded-xl flex items-center text-green-900">
                 {product.change.dir === "up" ? (

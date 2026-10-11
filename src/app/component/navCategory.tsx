@@ -9,11 +9,11 @@ const NavCategory = ({ navList }: { navList: ICategoryList[] }) => {
 
 
   return (
-    <div className="flex  md:gap-3 md:justify-start justify-center">
+    <div className="flex text-sm md:text-lg  md:gap-3 md:justify-start justify-center">
       {navList.map((p: ICategoryList) => {
         const isActive = pathName === `/category/${p.slug}`
         return(
-          <Link key={p.id} href={`/category/${p.id}`} className={isActive ? "bg-green-700 text-white p-2 rounded-lg items-center  ":" items-center p-2" }>
+          <Link key={p.id} href={`/category/${p.id}`} className={isActive ? "bg-green-700 text-white px-2 rounded-lg items-center  ":" items-center px-2 hover:bg-green-300 rounded-lg " }>
             <div className="flex gap-1">
               <samp className=" hidden md:inline">{p.icon}</samp>
               <p>{p.nameBn}</p>

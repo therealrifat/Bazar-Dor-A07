@@ -38,8 +38,8 @@ const Navbar = async () => {
 
 
   return (
-    <nav className=" space-y-3 bg-[#ffffff]">
-      <div className="md:px-55 px-10">
+    <nav className=" space-y-1 bg-[#ffffff]">
+      <div className="md:px-55 px-10  ">
         <div className=" flex items-center md:gap-10 py-5 justify-between ">
           <div className="flex gap-2 items-center">
             <Link href="/">
@@ -61,7 +61,9 @@ const Navbar = async () => {
         </div>
 
         {/* category part */}
-        <NavCategory navList={navList}/>
+        <div className="flex ">
+          <NavCategory navList={navList}/>
+        </div>
 
 
         

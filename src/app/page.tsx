@@ -44,7 +44,8 @@ export const getProducts =async()=>{
 
 export default function Home() {
   return (
-    <div className="max-w-7xl mx-auto">
+
+      <div className="max-w-7xl mx-auto">
       <BannerSection />
       {/* <p>Hello bazar dor</p> */}
       <HikePrice/>
@@ -52,5 +53,6 @@ export default function Home() {
       <AllProductList />
       
     </div>
+
   );
 }

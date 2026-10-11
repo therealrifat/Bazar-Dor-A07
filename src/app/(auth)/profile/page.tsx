@@ -36,7 +36,7 @@ const ProfilePage = () => {
         <h3 className="text-2xl">আমার প্রোফাইল</h3>
         <p>আপনার অ্যাকাউন্টের তথ্য এখানে দেখুন।</p>
       </div>
-      <div className="flex gap-5 justify-between  items-center bg-white md:w-2xl md:rounded-2xl p-5">
+      <div className="flex gap-5 justify-between  items-center bg-white md:max-w-190 sm:max-w-180  max-w-sm mx-auto md:rounded-2xl p-5">
         <div className="flex gap-2.5 items-center">
           <div className="overflow-hidden object-center w-20 h-20 rounded-lg">
             {session?.user.image ? (
@@ -56,8 +56,8 @@ const ProfilePage = () => {
             )}
           </div>
           <div>
-            <h4 className="text-2xl font-bold">{session?.user.name}</h4>
-            <p className="text-gray-500">{session?.user.email}</p>
+            <h4 className="md:text-2xl font-bold">{session?.user.name}</h4>
+            <p className="text-gray-500 md:text-lg text-sm">{session?.user.email}</p>
           </div>
         </div>
         <div className="flex gap-2 items-center text-red-500 border px-3 py-2 rounded-lg ">
@@ -67,7 +67,7 @@ const ProfilePage = () => {
 
       {/* update Profile */}
 
-      <div className="mt-10 bg-white flex flex-col  p-5 rounded-2xl">
+      <div className="mt-10 bg-white flex flex-col  p-5 max-w-105 sm:max-w-155  md:max-w-180 rounded-2xl ">
         <h4 className="font-bold text-left">তথ্য</h4>
         <div className=" flex flex-col items-center p-5 rounded-2xl">
           <Form

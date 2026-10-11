@@ -5,12 +5,12 @@ import Image from "next/image";
 
 const BannerSection = () => {
   return (
-    <div className="bg-white flex md:flex-row flex-col items-center md:gap-20 gap-10 p-5 mt-3 space-y-2 rounded-2xl border border-green-300">
+    <div className="bg-white flex md:flex-row max-w-107 sm:max-w-160 md:max-w-3xl lg:max-w-7xl flex-col items-center md:gap-20 gap-10 p-5 mt-3 space-y-2 rounded-2xl border border-green-300">
       <div className=" space-y-4 md:text-left text-center" >
         <div className="flex justify-center text-green-600 font-bold bg-green-100 w-58 h-7 rounded-2xl items-center">
           <CurrentDate />
         </div>
-        <h1 className="md:text-4xl text-3xl font-bold">আজকের বাজারের দাম এক নজরে</h1>
+        <h1 className="md:text-4xl sm:text-2xl font-bold">আজকের বাজারের দাম এক নজরে</h1>
         <p className="text-gray-800 md:w-2xl ">
           চাল, ডাল, তেল, সবজি, মাছ, মাংস, ডিম ও মসলার দাম — বাজারভিত্তিক
           বিস্তারিত, গড়, সর্বনিম্ন-সর্বাধিক এবং দামের পরিবর্তন এক জায়গায়।
